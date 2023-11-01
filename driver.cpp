@@ -26,7 +26,7 @@ int main() {
             cout << "Enter password: ";
             cin >> password;
             signUp(accounts, username, password);
-            cout << "Account succesfully created\n";
+            cout << "Account succesfully created!\n";
         }
         if(choice == 1) {
             cout << "Enter username: ";
