@@ -12,14 +12,6 @@ Account::Account(string AccName, string AccPassword) {
 
 Account::Account() = default;
 
-string Account::getName(){
-    return name;
-}
-
-string Account::getPassWord() {
-    return password;
-}
-
 void Account::setName(string newName){
     name = newName;
 }

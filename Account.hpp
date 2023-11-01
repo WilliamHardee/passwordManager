@@ -14,8 +14,6 @@ class Account{
         string password;
         Account(string AccName, string AccPassword);
         Account();
-        string getName();
-        string getPassWord();
         void setName(string newName);
         void setPassword(string newPassword);
         void addPassword(string site, string username, string pws);

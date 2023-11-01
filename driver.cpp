@@ -85,7 +85,7 @@ Account* signIn(map<string, Account> accountList, string username, string passwo
     Account tempAccount;
     if(accountList.find(username) != accountList.end()){
         tempAccount = accountList[username];
-        if(tempAccount.getPassWord() == password) {
+        if(tempAccount.password == password) {
             cout << "Signed in as: ";
             cout << username;
             cout << "\n";
