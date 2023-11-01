@@ -1,52 +1,41 @@
 #include <iostream>
 #include <map>
 #include <array>
-
+#include "Account.hpp"
 using namespace std;
+ 
+   
+Account::Account(string AccName, string AccPassword) {
+    name = AccName;
+    password = AccPassword;
+}
 
-class Account {
-    public:
-        string name;
-        string password;
-    
-    private: 
-        map<string, array<string, 2>> listOfPasswords;
+Account::Account() = default;
 
+string Account::getName(){
+    return name;
+}
 
-    public:
-        Account(string AccName, string AccPassword) {
-            name = AccName;
-            password = AccPassword;
-        }
+string Account::getPassWord() {
+    return password;
+}
 
-        Account() = default;
+void Account::setName(string newName){
+    name = newName;
+}
 
-        string getName(){
-            return name;
-        }
+void Account::setPassword(string newPassword){
+    password = newPassword;
+}
 
-        string getPassWord() {
-            return password;
-        }
+void Account::addPassword(string site, string username, string pws) {
+    listOfPasswords[site][0] = username;
+    listOfPasswords[site][1] = pws;
+}
 
-        void setName(string newName){
-            name = newName;
-        }
-
-        void setPassword(string newPassword){
-            password = newPassword;
-        }
-
-        void addPassword(string site, string username, string pws) {
-            listOfPasswords[site][0] = username;
-            listOfPasswords[site][1] = pws;
-
-        }
-
-        array<string, 2> getSiteCred(string site) {
-            if(listOfPasswords.find(site) != listOfPasswords.end()) {
-                return listOfPasswords[site];
-            }
-            return {"",""};
-        }
-};
+array<string, 2> Account::getSiteCred(string site) {
+    if(listOfPasswords.find(site) != listOfPasswords.end()) {
+        return listOfPasswords[site];
+    }
+    return {"",""};
+}

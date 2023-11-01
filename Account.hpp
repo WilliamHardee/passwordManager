@@ -4,6 +4,7 @@
 #include <map>
 #include <iostream>
 
+using namespace std;
 class Account{
     private:
         map<string, array<string, 2>> listOfPasswords;
