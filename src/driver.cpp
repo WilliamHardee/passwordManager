@@ -2,8 +2,9 @@
 #include <iostream>
 #include <list>
 #include <map>
+#include <pqxx/pqxx>
 
-
+#pragma comment(lib, "ws2_32.lib")
 
 void signUp(map<string, Account> &, string , string); 
 Account* signIn(map<string, Account>, string , string); 
@@ -11,7 +12,13 @@ Account* signIn(map<string, Account>, string , string);
 using namespace std;
 
 int main() {
-
+    try {
+        pqxx::connection C("dbname = postgres user = postgres password = mysecretpassword \hostaddr = 127.0.0.1 port = 5433");
+    }
+    catch(pqxx::broken_connection) {
+        cout << "Connection no found";
+    }
+    
     string username;
     string password;
     map<string, Account> accounts;
